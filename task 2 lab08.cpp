@@ -41,7 +41,17 @@ class Matrix
 		Matrix operator+(const Matrix & ref);
 		Matrix operator-(const Matrix & ref);
 		Matrix operator*(const Matrix & ref);
+	 friend ostream& operator<<(ostream& out, const Matrix& a);
 };
+ostream& operator<<(ostream& out, const Matrix& a){
+	for(int i=0; i<a.row; i++){
+		for(int j=0; j<a.col; j++){
+			out << a.data[i][j]<<" ";
+		}
+		out<<endl;
+	}
+	return out;
+}
 Matrix Matrix::operator*(const Matrix& ref){
 		if(col!=ref.row){
 				cout<<"multiplication not possible!";
@@ -410,6 +420,8 @@ int main() {
 	c=a*b;
 	cout<<"Multiplication through operator: "<<endl;
 	c.display();
+	cout<<"ostream operetaor: ";
+	cout<<a;
 	return 0;
 	   }
 
