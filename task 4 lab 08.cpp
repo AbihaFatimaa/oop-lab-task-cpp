@@ -1,7 +1,6 @@
 //bsdsf25m053
 # include <iostream>
 # include <string>
-# include <numeric>
 using namespace std;
 int abs(int x) {
     return x < 0 ? -x : x;
