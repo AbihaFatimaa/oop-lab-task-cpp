@@ -174,7 +174,7 @@ class Checkout{
     CString receipt;
 
     receipt.concatEqual((char*)DessertShoppe::getstoreName().c_str());
-    receipt.concatEqual("\n-------------------------\n");
+    receipt.concatEqual((char*)"\n-------------------------\n");
 
     for(int i = 0; i < count; i++)
     {
@@ -186,15 +186,15 @@ class Checkout{
         {
             CString line;
 
-            line.concatEqual("Candy ");
+            line.concatEqual((char*)"Candy ");
             line.concatEqual(c->getName());
-            line.concatEqual(" ");
+            line.concatEqual((char*)" ");
 
             string cost = DessertShoppe::cents2dollarsAndCents(c->getCost());
             line.concatEqual((char*)cost.c_str());
 
             receipt.concatEqual(line.getStr());
-            receipt.concatEqual("\n");
+            receipt.concatEqual((char*)"\n");
 
             continue;
         }
@@ -205,15 +205,15 @@ class Checkout{
         {
             CString line;
 
-            line.concatEqual("Cookie ");
+            line.concatEqual((char*)"Cookie ");
             line.concatEqual(ck->getName());
-            line.concatEqual(" ");
+            line.concatEqual((char*)" ");
 
             string cost = DessertShoppe::cents2dollarsAndCents(ck->getCost());
             line.concatEqual((char*)cost.c_str());
 
             receipt.concatEqual(line.getStr());
-            receipt.concatEqual("\n");
+            receipt.concatEqual((char*)"\n");
 
             continue;
         }
@@ -225,15 +225,15 @@ class Checkout{
             CString line;
 
             line.concatEqual((char*)s->getToppingName().c_str());
-            line.concatEqual(" Sundae with ");
+            line.concatEqual((char*)" Sundae with ");
             line.concatEqual(s->getName());
-            line.concatEqual(" ");
+            line.concatEqual((char*)" ");
 
             string cost = DessertShoppe::cents2dollarsAndCents(s->getCost());
             line.concatEqual((char*)cost.c_str());
 
             receipt.concatEqual(line.getStr());
-            receipt.concatEqual("\n");
+            receipt.concatEqual((char*)"\n");
 
             continue;
         }
@@ -244,26 +244,26 @@ class Checkout{
         {
             CString line;
 
-            line.concatEqual("IceCream ");
+            line.concatEqual((char*)"IceCream ");
             line.concatEqual(ic->getName());
-            line.concatEqual(" ");
+            line.concatEqual((char*)" ");
 
             string cost = DessertShoppe::cents2dollarsAndCents(ic->getCost());
             line.concatEqual((char*)cost.c_str());
 
             receipt.concatEqual(line.getStr());
-            receipt.concatEqual("\n");
+            receipt.concatEqual((char*)"\n");
         }
     }
 
     // ================= TAX =================
-    receipt.concatEqual("Tax ");
+    receipt.concatEqual((char*)"Tax ");
     string tax = DessertShoppe::cents2dollarsAndCents(totalTax());
     receipt.concatEqual((char*)tax.c_str());
-    receipt.concatEqual("\n");
+    receipt.concatEqual((char*)"\n");
 
     // ================= TOTAL =================
-    receipt.concatEqual("Total Cost ");
+    receipt.concatEqual((char*)"Total Cost ");
     string total = DessertShoppe::cents2dollarsAndCents(totalCost() + totalTax());
     receipt.concatEqual((char*)total.c_str());
 
